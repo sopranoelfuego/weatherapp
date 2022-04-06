@@ -34,25 +34,35 @@ body {
 }
 
 .submit {
- color: chocolate;
+ color: black;
+ background-color: rgb(123, 123, 167);
+ padding: 5px;
+ margin-top: 3px;
+ border-radius: 5px;
+ border: none;
+ outline: none;
  width: 100%;
+}
+.submit:hover {
+ cursor: pointer;
+ background-color: rgb(96, 96, 141);
 }
 .middle_container {
  display: flex;
- color: rgb(187, 54, 54);
+ color: rgb(21, 63, 59);
  justify-content: center;
  text-align: center;
 }
 
 .inputElement {
  margin: 3px;
- outline: none;
+ outline: none !important;
  background-color: transparent;
  border: none;
 }
 .inputDiv {
  background-color: white;
- border-radius: 10px;
+ border-radius: 5px;
  padding: 5px;
  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }

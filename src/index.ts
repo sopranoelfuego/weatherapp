@@ -3,10 +3,10 @@ import cors from 'cors'
 import dotenv from 'dotenv'
 import route from '@routes'
 const app = express()
+app.use(cors())
 dotenv.config()
 
 export default function bootstrap() {
- app.use(cors())
  app.use('/api', route)
 
  const port = process.env.PORT || 5001
