@@ -5,7 +5,7 @@ import route from '@routes'
 const app = express()
 app.use(cors())
 dotenv.config()
-
+// main function
 export default function bootstrap() {
  app.use('/api', route)
 

@@ -12,7 +12,7 @@ router.get('/', async (req: Request, res: Response) => {
   })
 
   const { data }: AxiosResponse = await axios.get(`${API_URL}?${newParams}`)
-  //   console.log('data', response)
+
   res.json(data)
  } catch (error) {
   res.json(error)

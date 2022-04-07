@@ -5,7 +5,7 @@ body {
 }
 
 .container {
- background-color: #c8e4e0;
+ background-color: #c5f7ef;
  height: 100vh;
  display: flex;
  flex-direction: column;
@@ -51,7 +51,7 @@ body {
  display: flex;
  color: rgb(21, 63, 59);
  justify-content: center;
- text-align: center;
+ /* text-align: center; */
 }
 
 .inputElement {
@@ -65,4 +65,23 @@ body {
  border-radius: 5px;
  padding: 5px;
  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#middle_up {
+ display: flex;
+ width: 100%;
+ justify-content: space-evenly;
+ align-items: center;
+ background-color: rgb(252, 247, 247);
+}
+
+.left {
+ display: flex;
+ align-items: center;
+}
+.temperature {
+ font-size: 40px;
+ padding: 4px;
+ margin-right: 2px;
+ border-right: 1px solid gold;
 }

@@ -18,19 +18,22 @@ const getWeather = async formData => {
 
  if (data.status === 401) {
   alert('Error aquire,please retry')
+  latitudeElement.value = longitudeElement.value = ''
   return
  }
  if (data.status === 400) {
-  alert('Error aquire,please retry')
+  alert('Error aquire,please make sure you provides right coordinates')
+  latitudeElement.value = longitudeElement.value = ''
   return
  }
- displayWeatherInfo(data?.main, data.name)
+ displayWeatherInfo(data)
  latitudeElement.value = longitudeElement.value = ''
 }
 const KelvinToCelsius = kelvinDegree => Math.ceil(kelvinDegree - 273.15)
 
-const displayWeatherInfo = (info, name) => {
+const displayWeatherInfo = info => {
  console.log('info here', info)
+ const { name, clouds, wind, main } = info
  const {
   temp,
   // feels_like,
@@ -40,16 +43,26 @@ const displayWeatherInfo = (info, name) => {
   humidity,
   sea_level,
   grnd_level,
- } = info
+ } = main
 
  infoDisplayer.innerHTML = `
   
+   
+ <div class="left">
+      <p class="temperature" name="temperature">
+       ${KelvinToCelsius(temp)}&deg;C
+      </p>
+      <div>
+      Humidité : ${humidity}%</br>
+      Clouds:${clouds?.all}%</br> 
+      Vent : ${wind?.speed} m/s</br>
+      </div>
+   </div>
+   <div class="right">
    <h2 class="city" name="city">
       ${name}
    </h2>
-   <p class="temperature" name="temperature">
-    ${KelvinToCelsius(temp)} &deg;F
-   </p>
+   </div>
   `
 }
 
@@ -63,9 +76,12 @@ form.addEventListener('submit', e => {
   return
  } else
   getWeather({
-   latitude: latitudeElement.value,
-   longitude: longitudeElement.value,
+   latitude: latitudeElement.value.trim(),
+   longitude: longitudeElement.value.trim(),
   })
 })
+
+// export const backKelvinToFahrenheit = kelvinDegree =>
+//  Math.ceil(((kelvinDegree - 273.15) * 9) / 5 + 32)
 
 getWeather({ longitude: '29.347916', latitude: '-3.361260' })
